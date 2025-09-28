@@ -1,8 +1,8 @@
 ---
 title: Spring Request&Response
 date: 2025-09-28 10:00:00 +09:00
-categories: [Spring, SpringMVC]
-tags: [ Spring, SpringMVC ]
+categories: [Spring Framework, SpringMVC]
+tags: [ Spring Framework, SpringMVC ]
 ---
 
 ## 1. 전체흐름
