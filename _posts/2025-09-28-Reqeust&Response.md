@@ -2,7 +2,7 @@
 title: Spring Request&Response
 date: 2025-09-28 10:00:00 +09:00
 categories: [Spring, SpringMVC]
-tags: [ Spring, MVC ]
+tags: [ Spring, SpringMVC ]
 ---
 
 ## 1. 전체흐름
@@ -62,6 +62,7 @@ tags: [ Spring, MVC ]
    ```
    
 ### 2. 요청 자체에대한 정보 접근
+
 | 구분                 | 설명                             | 예시                                                                                             |
 | ------------------ | ------------------------------ | ---------------------------------------------------------------------------------------------- |
 | HttpServletRequest | 서블릿 API 직접 접근 (파라미터, 헤더, 세션 등) | 요청: `/req?name=kim` → request.getParameter("name") = "kim"                                     |
@@ -71,6 +72,7 @@ tags: [ Spring, MVC ]
 
 ## 3. Response 반환
 ### 1. Response 반환
+
 | 반환 타입                                  | 역할 / 의미             | 특징 / 사용 예시                                                       |
 | -------------------------------------- | ------------------- | ---------------------------------------------------------------- |
 | String                                 | 뷰 이름(view name)     | ViewResolver가 뷰를 찾아 렌더링. 예: `"home"` → `/WEB-INF/views/home.jsp` |

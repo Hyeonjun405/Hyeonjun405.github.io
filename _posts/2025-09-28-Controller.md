@@ -2,7 +2,7 @@
 title: Spring Controller
 date: 2025-09-28 10:00:00 +09:00
 categories: [Spring, SpringMVC]
-tags: [ Spring, MVC ]
+tags: [ Spring, SpringMVC ]
 ---
 
 ## 1. Controller
@@ -20,12 +20,14 @@ public class HelloController {
 ```
 ## 2. 애노테이션
 ### 1. 클래스 레벨
+
 | 애노테이션             | 역할                                                                   |
 | ----------------- | -------------------------------------------------------------------- |
 | `@Controller`     | 일반적인 웹 컨트롤러, 뷰 이름을 반환할 때 사용                                          |
 | `@RestController` | JSON, XML 등 HTTP 바디 직접 반환 시 사용 (`@Controller + @ResponseBody` 기능 포함) |
 
 ### 2. http 메서드
+
 | 애노테이션             | 역할                                |
 | ----------------- | --------------------------------- |
 | `@RequestMapping` | 요청 URL과 HTTP 메서드(GET, POST 등)를 매핑 |
@@ -36,6 +38,7 @@ public class HelloController {
 | `@PatchMapping`   | PATCH 요청을 처리                      |
 
 ### 3. 요청 데이터 => 03 MVC - 02 Reqeust&Response
+
 | 애노테이션             | 역할                         |
 | ----------------- | -------------------------- |
 | `@RequestParam`   | 쿼리 파라미터 값 매핑               |
