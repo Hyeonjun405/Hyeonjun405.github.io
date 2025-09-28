@@ -2,7 +2,7 @@
 title: Spring Connection
 date: 2025-09-28 10:00:00 +09:00
 categories: [Spring Framework, SpringData]
-tags: [ JAVA, Spring Framework, SpringData, Connection]
+tags: [ Java, Spring Framework, SpringData, Connection]
 ---
 
 ## 1. DB Connection
