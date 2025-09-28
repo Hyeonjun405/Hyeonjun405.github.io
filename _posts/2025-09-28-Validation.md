@@ -2,7 +2,7 @@
 title: Validation
 date: 2025-09-28 10:00:00 +09:00
 categories: [Spring Framework, Spring]
-tags: [ Spring Framework, Validation]
+tags: [ JAVA, Spring Framework, Validation]
 ---
 
 ## 1. Validation

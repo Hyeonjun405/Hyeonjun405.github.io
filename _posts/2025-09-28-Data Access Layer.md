@@ -2,7 +2,7 @@
 title: Data Access Layer
 date: 2025-09-28 10:00:00 +09:00
 categories: [Spring Framework, SpringData]
-tags: [ Spring Framework, SpringData, Data Access Layer]
+tags: [ JAVA, Spring Framework, SpringData, Data Access Layer]
 ---
 
 ## 1. Data Access Layer

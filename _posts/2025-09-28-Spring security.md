@@ -2,7 +2,7 @@
 title: Spring Security
 date: 2025-09-28 10:00:00 +09:00
 categories: [Spring Framework, SpringSecurity]
-tags: [ Spring Framework, SpringSecurity ]
+tags: [ JAVA, Spring Framework, SpringSecurity ]
 ---
 
 ## 1. Spring Filter/interceptor

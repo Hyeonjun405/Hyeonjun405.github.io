@@ -2,7 +2,7 @@
 title: Spring module
 date: 2025-09-28 10:00:00 +09:00
 categories: [Spring Framework, SpringNote]
-tags: [ Spring Framework, Spring Note ]
+tags: [ JAVA, Spring Framework, Spring Note ]
 ---
 
 ## 1. 스프링 모듈
