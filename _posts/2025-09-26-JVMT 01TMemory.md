@@ -1,0 +1,143 @@
+---
+title: 01 T-memory
+date: 2025-09-26 10:00:00 +09:00
+categories: [Java, JVM Tmemory]
+tags: [ Java, JVM ]
+---
+
+## 1. T-memory
+### 1. T-memory
+ - 공식적인 표기 방법 X
+ - 편의를 위해서 사용하는 방법 O
+
+### 2. 모양
+```
+┌──────────────────────────────────┐
+│         Method Area              │
+│  클래스 코드, 메서드 코드,         │
+│  static 변수 등                   │
+├─────────────────┬────────────────┤
+│      Stack      │      Heap      │
+│ 지역변수,        │ 객체 인스턴스   │
+│ 참조값, 매개변수 │ + 메타 정보     │
+└─────────────────┴────────────────┘
+```
+
+## 2. 영역
+### 1. 메소드 영역
+ - 역할: 클래스 관련 정보와 메서드 코드, static 변수 저장
+ - 특징: 모든 쓰레드 공유
+ - 내용
+   - 클래스 메서드 코드(예: 날다(), 달리다())
+   - static 필드
+   - 클래스 메타 정보
+
+### 2. 스택 영역(Stack Area)
+ - 역할: 메서드 호출 시 지역 변수, 매개변수, 참조값 저장
+ - 특징: LIFO 구조, 메서드 호출이 끝나면 자동 해제
+ - 예시_1
+   ```
+   void foo() {
+     int x = 10;   // 스택에 저장
+     Object obj = new Object();  // obj 참조값만 스택
+   }
+   ```
+ - 예시_2
+   ```
+   public static void main(String[] args) { -> main 스택 프레임 push
+    int x = 10;
+    foo(x); → foo 스택 프레임 push
+   }
+   
+   static void foo(int n) {
+       int y = n + 1;
+       bar(y); → bar 스택 프레임 생성
+   }
+   
+   static void bar(int m) {
+       System.out.println(m);
+   }
+   // 각기 끝나고 종결, 일반적으로 생성 역순으로 처리됨. (LIFO)
+   ```
+
+### 3. 힙 영역(Heap Area)
+ - 역할: 객체 인스턴스와 배열 저장
+ - 특징: 모든 쓰레드가 공유, 가비지 컬렉션(GC) 관리
+ - 내용
+   - 인스턴스 필드
+   - 객체 메타 정보(클래스 타입, 동기화 정보 등)
+
+
+## 2. Java Lang
+### 1. JAVA Lang
+- 패키지는 자바에서 가장 핵심적이고 기본적인 클래스들을 모아 놓은 패키지
+- 거의 모든 자바 프로그램이 사용하며, import 없이 기본으로 사용할 수 있음
+
+### 2.위치와 특징
+- 패키지 이름: java.lang
+- 자동 임포트: 자바 파일에서 별도로 import java.lang.*; 안 해도 항상 사용 가능
+- 목적: 자바 언어 자체가 제공해야 하는 기본 기능과 타입, 유틸리티 클래스 제공
+
+### 3. 주요클래스
+
+| 클래스/인터페이스                        | 역할                                              |
+| -------------------------------- | ----------------------------------------------- |
+| Object                           | 모든 클래스의 최상위 부모, equals, hashCode, toString 등 정의 |
+| Class                            | 클래스 메타데이터 제공, 리플렉션 기능 지원                        |
+| String                           | 문자열 처리, 불변 객체(immutable)                        |
+| StringBuilder / StringBuffer     | 가변 문자열 처리                                       |
+| Math / StrictMath                | 수학 함수, 상수 제공                                    |
+| Integer, Long, Double, Boolean 등 | 기본 타입의 Wrapper 클래스                              |
+| System                           | 입출력, 환경 변수, 시스템 시간, GC 호출 등                     |
+| Thread                           | 스레드 생성, 관리                                      |
+| Throwable, Exception, Error      | 예외 처리 계층 구조                                     |
+| Runnable                         | 스레드 실행 단위 정의                                    |
+| Character                        | 문자 처리, 유니코드 지원                                  |
+
+### 4. 구조적 의미
+- 자바 언어 설계상, java.lang 패키지는 언어 레벨의 기본 클래스 라이브러리(Library of the Language)
+- JVM이 제공하는 Method Area, Heap 등에서 동작하는 객체들의 타입과 기본 기능 대부분을 여기서 정의
+
+## 3. java.Lang - JVM Memory 
+### 1. 흐름
+#### 1. 클래스 로딩
+- 자바 프로그램이 실행되면 JVM의 ClassLoader가 클래스 파일(.class)을 읽어 메소드 영역(Method Area)에 올림
+- java.lang 패키지의 클래스(Object, String, Integer, System 등)도 메소드 영역에 로딩. ***(가장 먼저 항상)***
+
+#### 2. 객체 생성과 Heap
+- String s = new String("abc");
+- String 클래스 정보는 메소드 영역
+- 실제 객체("abc")는 Heap에 생성
+- s 변수(참조)는 스택에 저장
+
+#### 3. Static 변수와 Method Area
+- System.out 같은 static 변수는 메소드 영역에 저장
+- JVM이 이 변수에 접근할 때, 실제 출력 장치로 연결되는 동작은 네이티브 메서드를 통해 수행
+
+#### 4. 메서드 호출과 스택
+- s.length() 호출 시:
+   - 메소드 코드 정보는 메소드 영역
+   - 호출 스택 프레임은 스택
+   - 객체 참조(s)는 스택에 저장되어 메소드가 Heap의 실제 객체를 참조
+
+### 2. 구조 예시
+```
+메소드 영역(Method Area)
+┌─────────────────────────┐
+│ java.lang.String        │  ← 클래스 정보, static 변수
+│ java.lang.System        │
+│ ...                     │
+└─────────────────────────┘
+
+힙(Heap)
+┌─────────────────────────┐
+│ "abc" 문자열 객체        │  ← String 객체
+│ ...                     │
+└─────────────────────────┘
+
+스택(Stack)
+┌─────────────────────────┐
+│ s → Heap의 "abc" 객체    │  ← 지역 변수 참조
+│ ...                     │
+└─────────────────────────┘
+```
