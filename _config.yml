@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: Hyeonjun.log
 
-tagline: 개발 블로그
+tagline: 개발 일지와 TIL의 기록
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -38,8 +38,8 @@ social:
   email: youhj14@naver.com
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    # https://twitter.com/username # change to your Twitter homepage
+    - https://github.com/Hyeonjun405 # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
