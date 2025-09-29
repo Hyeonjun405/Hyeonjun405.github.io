@@ -4,5 +4,13 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+## Yoo HyeonJun
+ - Name : 유현준
+ - E-mail : youhj14@naver.com
+ - Blog: https://hyeonjun405.github.io/
+ - Git : https://github.com/Hyeonjun405
+
+## Skills Stack
+ - Java, SpringFrameWork
+ - PostgreSQL, Oracle SQL
+ - Git, IntelliJ
