@@ -1,7 +1,7 @@
 ---
 title: 02 Data Connection
 date: 2025-09-28 10:00:00 +09:00
-categories: [Spring Framework, SpringData]
+categories: [00Spring Framework, SpringData]
 tags: [ Java, Spring Framework, SpringData, Connection]
 ---
 

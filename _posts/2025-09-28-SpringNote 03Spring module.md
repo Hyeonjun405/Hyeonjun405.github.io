@@ -1,7 +1,7 @@
 ---
 title: 03 Spring module
 date: 2025-09-28 10:00:00 +09:00
-categories: [Spring Framework, SpringNote]
+categories: [00Spring Framework, SpringNote]
 tags: [ Java, Spring Framework, Spring Note ]
 ---
 

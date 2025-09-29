@@ -1,7 +1,7 @@
 ---
 title: 02 Controller
 date: 2025-09-28 10:00:00 +09:00
-categories: [Spring Framework, SpringMVC]
+categories: [00Spring Framework, SpringMVC]
 tags: [ Java, Spring, SpringMVC ]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 03 Validation
 date: 2025-09-28 10:00:00 +09:00
-categories: [Spring Framework, Spring]
+categories: [00Spring Framework, Spring]
 tags: [ Java, Spring Framework, Validation]
 ---
 
