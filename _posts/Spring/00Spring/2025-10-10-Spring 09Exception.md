@@ -1,5 +1,5 @@
 ---
-title: 09 Spring Exceptionㅋ
+title: 09 Spring Exception
 date: 2025-10-10 10:00:00 +09:00
 categories: [00Spring Framework, Spring]
 tags: [ Java, Spring Framework, SpringBoot, Exception ]
@@ -66,11 +66,11 @@ tags: [ Java, Spring Framework, SpringBoot, Exception ]
 
 | 구조                   | 전역 예외 처리 지원   | @ExceptionHandler 사용         | 전용 예외 처리 인터페이스           | 특징                                          |
 | -------------------- | ------------- | ---------------------------- | ------------------------ | ------------------------------------------- |
-| **Spring MVC**       | ✅             | ✅                            | HandlerExceptionResolver | DispatcherServlet 기반. 가장 체계적이고 다양한 처리 방식 제공 |
-| **Spring WebFlux**   | ✅             | ✅                            | WebExceptionHandler      | 비동기(Reactive) 방식 예외 처리. 비동기 전역 처리 지원        |
-| **Spring WebSocket** | ✅             | ✅ (@MessageExceptionHandler) | 없음                       | 메시지 단위 예외 처리. 지속 연결 기반                      |
-| **서버리스**             | ❌ (환경에 따라 다름) | 일부 가능                        | 없음                       | 함수 단위 처리. 플랫폼 의존적                           |
-| **Spring Batch**     | ❌             | ❌                            | SkipPolicy, RetryPolicy  | Step/Job 단위 예외 처리. HTTP 구조 없음               |
+| Spring MVC       | ✅             | ✅                            | HandlerExceptionResolver | DispatcherServlet 기반. 가장 체계적이고 다양한 처리 방식 제공 |
+| Spring WebFlux   | ✅             | ✅                            | WebExceptionHandler      | 비동기(Reactive) 방식 예외 처리. 비동기 전역 처리 지원        |
+| Spring WebSocket | ✅             | ✅ (@MessageExceptionHandler) | 없음                       | 메시지 단위 예외 처리. 지속 연결 기반                      |
+| 서버리스             | ❌ (환경에 따라 다름) | 일부 가능                        | 없음                       | 함수 단위 처리. 플랫폼 의존적                           |
+| Spring Batch     | ❌             | ❌                            | SkipPolicy, RetryPolicy  | Step/Job 단위 예외 처리. HTTP 구조 없음               |
 
 
 #### 2. DispatcherServlet과 Exception 흐름
