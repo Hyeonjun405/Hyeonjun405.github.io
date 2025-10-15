@@ -64,4 +64,7 @@ tags: [ asianaClone ]
 ## 4. 데이터베이스
 ### 1. note
  
+### 2. Table ERD
+![내 그림](assets/img/AsianaClone/tableERD.png "이미지")
+
 ### 2. 디비 연결
