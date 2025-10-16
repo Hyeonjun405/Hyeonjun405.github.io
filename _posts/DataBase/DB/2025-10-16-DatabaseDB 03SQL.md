@@ -83,23 +83,6 @@ tags: [ Database, DB, SQL ]
 | UPDATE | 데이터 수정 | `UPDATE 테이블 SET 컬럼=값 WHERE 조건;`               | 조건 없으면 전체 수정 주의     |
 | DELETE | 데이터 삭제 | `DELETE FROM 테이블 WHERE 조건;`                   | 조건 없으면 전체 삭제 주의     |
 
-### 4. Join
-
-#### 1. Join
- - 두 개 이상의 테이블을 공통된 속성(컬럼)을 기준으로 연결하여, 하나의 결과 집합(Result Set)으로 만드는 관계형 연산
- - Join은 DML은 아니지만 SELECT 문 안에서 사용하는 연산자(연산식)
-
-#### 2. 종류
-
-| 종류                            | 설명                              | 예시                                               |
-| ----------------------------- | ------------------------------- | ------------------------------------------------ |
-| INNER JOIN                    | 두 테이블 모두 조건을 만족하는 행만            | `SELECT * FROM A INNER JOIN B ON A.id = B.a_id;` |
-| LEFT JOIN (LEFT OUTER JOIN)   | 왼쪽 테이블 기준, 조건 일치 여부와 상관없이 모든 행  | `SELECT * FROM A LEFT JOIN B ON A.id = B.a_id;`  |
-| RIGHT JOIN (RIGHT OUTER JOIN) | 오른쪽 테이블 기준, 조건 일치 여부와 상관없이 모든 행 | `SELECT * FROM A RIGHT JOIN B ON A.id = B.a_id;` |
-| FULL JOIN (FULL OUTER JOIN)   | 양쪽 테이블 모두, 조건 일치 여부와 상관없이 모든 행  | `SELECT * FROM A FULL JOIN B ON A.id = B.a_id;`  |
-| CROSS JOIN                    | 모든 조합(Cartesian product)        | `SELECT * FROM A CROSS JOIN B;`                  |
-
-
 ## 3. DCL
 ### 1. DCL (Data Control Language)
  - 데이터베이스 사용자에게 권한을 부여하거나 회수하는 명령어 집합
@@ -158,3 +141,49 @@ tags: [ Database, DB, SQL ]
 | ROLLBACK    | 트랜잭션 취소     | `ROLLBACK;`         | 마지막 COMMIT 이전 상태로 복구 |
 | SAVEPOINT   | 중간 저장 지점 설정 | `SAVEPOINT 저장점명;`   | 특정 지점까지만 되돌릴 때 사용    |
 | ROLLBACK TO | 특정 지점까지 복구  | `ROLLBACK TO 저장점명;` | SAVEPOINT와 함께 사용     |
+
+
+## 5. Join
+
+### 1. Join
+- 두 개 이상의 테이블을 공통된 속성(컬럼)을 기준으로 연결하여, 하나의 결과 집합(Result Set)으로 만드는 관계형 연산
+- Join은 DML은 아니지만 SELECT 문 안에서 사용하는 연산자(연산식)
+
+### 2. 종류
+
+| 종류                            | 설명                              | 예시                                               |
+| ----------------------------- | ------------------------------- | ------------------------------------------------ |
+| INNER JOIN                    | 두 테이블 모두 조건을 만족하는 행만            | `SELECT * FROM A INNER JOIN B ON A.id = B.a_id;` |
+| LEFT JOIN (LEFT OUTER JOIN)   | 왼쪽 테이블 기준, 조건 일치 여부와 상관없이 모든 행  | `SELECT * FROM A LEFT JOIN B ON A.id = B.a_id;`  |
+| RIGHT JOIN (RIGHT OUTER JOIN) | 오른쪽 테이블 기준, 조건 일치 여부와 상관없이 모든 행 | `SELECT * FROM A RIGHT JOIN B ON A.id = B.a_id;` |
+| FULL JOIN (FULL OUTER JOIN)   | 양쪽 테이블 모두, 조건 일치 여부와 상관없이 모든 행  | `SELECT * FROM A FULL JOIN B ON A.id = B.a_id;`  |
+| CROSS JOIN                    | 모든 조합(Cartesian product)        | `SELECT * FROM A CROSS JOIN B;`                  |
+
+### 3. oracle - join
+#### 1. 표준 SQL(ANSI) vs Oracle 전용 문법
+  - Oracle은 예전부터 자체 전용 조인 문법(Oracle Join Syntax)을 사용함.
+  - 나중에 ANSI 표준 SQL JOIN 문법도 지원하게 됨.
+
+#### 2. Oracle 전용 Join
+ 
+   | 구분             | ANSI 표준 SQL                                    | Oracle 전용 문법 (옛 방식)                        |
+   | -------------- | ---------------------------------------------- | ------------------------------------------ |
+   | INNER JOIN | `SELECT  FROM A INNER JOIN B ON A.id = B.id;` | `SELECT  FROM A, B WHERE A.id = B.id;`    |
+   | LEFT JOIN  | `SELECT  FROM A LEFT JOIN B ON A.id = B.id;`  | `SELECT  FROM A, B WHERE A.id = B.id(+);` |
+   | RIGHT JOIN | `SELECT  FROM A RIGHT JOIN B ON A.id = B.id;` | `SELECT  FROM A, B WHERE A.id(+) = B.id;` |
+   | FULL JOIN  | `SELECT  FROM A FULL JOIN B ON A.id = B.id;`  | 지원 안 함 (UNION으로 대체해야 함)                    |
+
+#### 3. 비교
+ - 오라클
+    ```
+    SELECT e.name, d.dept_name
+    FROM employee e, department d
+    WHERE e.dept_id = d.dept_id(+);
+    ```
+ - ANSI표준
+   ```
+   SELECT e.name, d.dept_name
+   FROM employee e
+   LEFT JOIN department d
+   ON e.dept_id = d.dept_id;
+   ```
