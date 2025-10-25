@@ -10,7 +10,6 @@ tags: [ asianaClone ]
 
 ### 2. 개요
 - 프로젝트명 : asiana-clone
-- 개발기간 : 2025.10.13. ~ 진행중
 - 개발인원 : 1명
 - 주요기능
   - 항공편 검색 및 예약
@@ -22,4 +21,3 @@ tags: [ asianaClone ]
 - 개발언어 : java 17
 - 개발환경 : Springboot 3.5.6, thymleaf
 - 데이터베이스 : PostgreSQL 17
- 
