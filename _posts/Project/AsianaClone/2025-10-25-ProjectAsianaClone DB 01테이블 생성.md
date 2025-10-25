@@ -49,7 +49,7 @@ tags: [ asianaClone, Data ]
 | 쿠폰/이벤트 | users ↔ user_coupons ↔ coupons ↔ events | 유저별 이벤트 참여 및 할인 처리    |
 
 ## 4. SQL
-#### 1. flights (비행기 노선 정보)
+### 1. flights (비행기 노선 정보)
 
   ``` 
   CREATE TABLE flights.flights (
@@ -62,7 +62,7 @@ tags: [ asianaClone, Data ]
   );
   ```
 
-#### 2. flight_status (항공편 운항 상태)
+### 2. flight_status (항공편 운항 상태)
   ```
   CREATE TABLE flights.flight_status (
       flight_id BIGINT PRIMARY KEY,             -- 항공편 ID
@@ -75,7 +75,7 @@ tags: [ asianaClone, Data ]
   );
   ```
 
-#### 3. airplane_seats (항공편별 좌석 정보)
+### 3. airplane_seats (항공편별 좌석 정보)
   ```
   CREATE TABLE flights.airplane_seats (
       seat_id BIGSERIAL PRIMARY KEY,            -- 좌석 정보 ID
@@ -88,7 +88,7 @@ tags: [ asianaClone, Data ]
   );
   ```
 
-#### 4. users (유저 테이블)
+### 4. users (유저 테이블)
   ```
   CREATE TABLE flights.users (
       user_id BIGSERIAL PRIMARY KEY,            -- 유저 ID
@@ -99,7 +99,7 @@ tags: [ asianaClone, Data ]
   );
   ```
 
-#### 5. reservations (항공편별 예약 정보)
+### 5. reservations (항공편별 예약 정보)
   ```
   CREATE TABLE flights.reservations (
       reservation_id BIGSERIAL PRIMARY KEY,     -- 예약 ID
@@ -118,5 +118,5 @@ tags: [ asianaClone, Data ]
   );
   ```
 
-## 2. ERD
+## 5. ERD
  ![내 그림](assets/img/AsianaClone/tableERD.png "이미지")
