@@ -10,11 +10,18 @@ order: 1
  - Git : https://github.com/Hyeonjun405
 
 ## Skills Stack
- - Java, SpringFrameWork
- - PostgreSQL, Oracle SQL
- - Git, IntelliJ
+- Languages : #Java, #JavaScript
+- FrameWorks : #Spring Framework, #Spring Boot
+- Databases : #PostgreSQL, #Oracle SQL
+- Tools & IDEs : #IntelliJ IDEA, #Eclipse
+- Other : #REST API, #JSON, #AJAX, #Bootstrap
 
 ## About Me
+&nbsp;저는 시스템 이용자에서 직접 문제를 해결하기 위해 웹개발을 시작한 3년 차 개발자입니다.<br>
+&nbsp;공공기관과 민간기업의 다양한 시스템을 경험하며 문제는 단순한 기술적 이슈가 아니라 이해관계와 환경 속에서 발생한다는 것을 배웠고, 이러한 경험을 바탕으로 현재 신규 SI 프로젝트의 초기 단계에서 운영 절차와 시스템 관리 방식을 직접 수립했으며, 이후 개발 포지션으로 전환하여 Spring MVC와 Rest API 기반의 배치 모듈화를 수행했습니다. 또한 Bootstrap과 Ajax를 활용해 사용자별 맞춤형 View를 구현함으로써 시스템 활용 효율을 높였습니다.<br>
+&nbsp;저는 ‘이용자 경험 중심의 문제 해결’을 핵심 가치로 삼고 있으며, 기술이 현장의 효율성과 만족으로 이어지도록 고민하며 사용자 친화적이고 안정적인 서비스를 제공하는 개발자로 성장하고자 합니다.
+
+## Profile
 - 단계별 접근을 통해 구조적 문제를 해결
   - 모듈화 및 파라미터화<br>
     &nbsp;부서별 데이터가 개별 서비스 로직으로 분리되어 있고, 파라미터 없이 하드코딩된 구조로 인해 확장성과 유지보수가 어려웠습니다. 이를 개선하기 위해 데이터를 통합 테이블에 정리하고, 공통 모듈에서 파라미터 기반으로 동작하도록 구조를 변경했습니다. 그 결과 새로운 부서가 추가될 때도 별도 코딩 없이 통합 테이블 연동만으로 대응할 수 있었습니다.
@@ -35,7 +42,6 @@ order: 1
 
   - 변화 추진과 소통 능력<br>
     &nbsp;여러 이해 관계자와의 상호작용 과정에서 새로운 시도와 변화를 추진하며, 효과적인 소통 방식을 체득했습니다. 예를 들어, 다양한 부서와 협업하는 과정에서 전문성과 환경 차이로 발생하는 용어와 목표 기준의 차이를 신속하게 조율했습니다. 이를 통해 변화 과정에서 협업 효율성을 높였으며, 공동체의 목적 의식 강화와 프로젝트 진행 속도 개선이라는 성과를 달성했습니다.
-
 
 ## Training
 - 2025.06. ~ 2025.10. F-lab Java Backend 과정
