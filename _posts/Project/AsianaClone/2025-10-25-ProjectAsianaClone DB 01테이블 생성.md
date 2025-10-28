@@ -1,7 +1,7 @@
 ---
 title: 01 테이블 생성
 date: 2025-10-25 10:00:00 +09:00
-categories: [01asianaClone, Data]
+categories: [01asianaClone, asianaData]
 tags: [ asianaClone, Data ]
 ---
 

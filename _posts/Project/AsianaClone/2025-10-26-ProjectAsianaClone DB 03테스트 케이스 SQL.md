@@ -1,7 +1,7 @@
 ---
 title: 03 테스트 케이스
 date: 2025-10-26 10:00:00 +09:00
-categories: [01asianaClone, Data]
+categories: [01asianaClone, asianaData]
 tags: [ asianaClone, Data ]
 ---
 
