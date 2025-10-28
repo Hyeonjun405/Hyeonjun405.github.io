@@ -37,7 +37,7 @@ public class HelloController {
 | `@DeleteMapping`  | DELETE 요청을 처리                     |
 | `@PatchMapping`   | PATCH 요청을 처리                      |
 
-### 3. 요청 데이터 => 03 MVC - 02 Reqeust&Response
+### 3. 요청 데이터 => 03 MVC - 03 Reqeust&Response
 
 | 애노테이션             | 역할                         |
 | ----------------- | -------------------------- |
