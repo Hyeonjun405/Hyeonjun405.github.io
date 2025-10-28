@@ -45,14 +45,14 @@ tags: [ Java, Spring Framework, SpringMVC ]
    @GetMapping("/user/{id}")
    public String getUser(@PathVariable Long id) { ... }
    ```
- - @RequestBody : HTTP body(JSON, XML 등)를 객체로 변환. (HttpMessageConverter 동작).
+ - @RequestBody : HTTP body(JSON, XML 등)를 객체로 변환. -> HttpMessageConverter 동작
    ```
    // 요청 JSON: {"name":"kim","age":20}
    // userDto.getName() = "kim", userDto.getAge() = 20
    @PostMapping("/user")
    public String save(@RequestBody UserDto dto) { ... }
    ```
- - @ModelAttribute : 요청 파라미터를 객체(DTO/VO)로 바인딩 + Model에 자동 등록.
+ - @ModelAttribute : 요청 파라미터를 객체(DTO/VO)로 바인딩 + Model에 자동 등록. -> Spring MVC 자체의 WebDataBinder (데이터 바인딩 엔진)
    ```
    // 요청 파라미터: name=kim&age=20
    // → User 객체 생성: user.setName("kim"), user.setAge(20)
