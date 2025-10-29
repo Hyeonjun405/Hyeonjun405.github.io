@@ -1,7 +1,7 @@
 ---
 title: 03 진행현황
-date: 2025-10-14 10:00:00 +09:00
-categories: [01asianaClone, base]
+date: 2025-10-29 10:00:00 +09:00
+categories: [01asianaClone, asianaBase]
 tags: [ asianaClone ]
 ---
 

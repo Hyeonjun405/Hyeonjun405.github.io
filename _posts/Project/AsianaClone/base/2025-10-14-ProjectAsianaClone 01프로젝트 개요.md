@@ -1,7 +1,7 @@
 ---
 title: 01 프로젝트 개요
 date: 2025-10-14 10:00:00 +09:00
-categories: [01asianaClone, base]
+categories: [01asianaClone, asianaBase]
 tags: [ asianaClone ]
 ---
 
