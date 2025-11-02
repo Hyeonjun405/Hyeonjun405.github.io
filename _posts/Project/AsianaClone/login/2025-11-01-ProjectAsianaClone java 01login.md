@@ -80,6 +80,7 @@ tags: [ asianaClone ]
 | verifyOtp(String otp, VerifyOtpVO verifyOtp) | 입력한 OTP 검증                | 없음 (void)                   |
 
 #### 2. 분리후
+
 | 클래스 | 메소드명                                         | 설명                        | 반환값 / 결과                    |
 |-----| -------------------------------------------- | ------------------------- | --------------------------- |
 |AuthenticationService| checkAccountStatus(UserVO user)              | 계정 상태 확인 (휴면/잠금/정상)       | 없음 (void)                   |
