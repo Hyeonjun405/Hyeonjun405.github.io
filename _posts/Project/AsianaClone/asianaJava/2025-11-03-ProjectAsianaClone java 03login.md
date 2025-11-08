@@ -1,7 +1,7 @@
 ---
-title: 01 Login 1~2
-date: 2025-11-01 10:00:00 +09:00
-categories: [01asianaClone, asianaLogin]
+title: 03 Login 수정
+date: 2025-11-03 10:00:00 +09:00
+categories: [01asianaClone, asianaJava]
 tags: [ asianaClone ]
 ---
 
