@@ -19,11 +19,13 @@ tags: [ asianaClone ]
    - 로그인 자체는 한번 구성해두면 변경할일이 거의없기 때문에 고정으로 사용하기 위한 방법으로 판단하고 진행.
 
  - Point
-   - OTP와 검증등을 넣기 시작하면서 service가 엄청 뚱뚱해지는 상황이 발생함.
+   - Service의 책임이 너무 많음
+     - OTP와 검증등을 넣기 시작하면서 service가 엄청 뚱뚱해지는 상황이 발생함.
      - service를 쪼개서 AccountService, AuthenticationService, OtpService 3개로 분리.
      - 기능의 묶음단위로 서비스 구분하기.
-
-   - 모든 실패와 오류들을 Excetpion으로 처리 했더니, 실제 Exception과 default가 묶어서 보내주는거랑 구분이 안됨.
+ 
+   - Exception은 진짜 Exception만 처리
+     - 모든 실패와 오류들을 Excetpion으로 처리 했더니, 실제 Exception과 default가 묶어서 보내주는거랑 구분이 안됨.
      - 컨트롤러가 뚱뚱해지는 것을 막기 위해서 Exception으로 분기를 다처리했는데 더 복잡해짐.
      - Exception은 순수하게 오류나는 것만 처리하고, 실제로 타이핑 오류등은 Exception에서 제외
 
@@ -46,44 +48,9 @@ tags: [ asianaClone ]
  - Um...
    - 클래스의 책임은 어디까지 줘야할까? 
    - 그럼 어디부터 어디까지 클래스를 단계와 레벨링을 해야하는걸까?  
-  
-## 3. 초기 방식
-### 1. 컨트롤러/메소드(LoginController)
 
-| HTTP Method | URL                    | 메소드명            | 설명                   | 반환 뷰 / 리다이렉트                              |
-| ----------- | ---------------------- | --------------- | -------------------- | ----------------------------------------- |
-| POST        | /login                 | login           | 일반 로그인 처리 및 2차 인증 분기 | 2차 인증 여부에 따라 `/login/otp`, `/login` 리다이렉트 |
-| GET         | /login/otp             | otpLoginPage    | OTP 입력 페이지           | `login/otp` 뷰                             |
-| POST        | /login/otp             | otpVerify       | 입력한 OTP 검증           | `/` 리다이렉트                                 |
-| POST        | /login/otp/resend      | resendOtp       | OTP 재발송              | `/login/otp` 리다이렉트                        |
-| GET         | /login/findAccount     | findAccountPage | 계정 찾기 페이지            | `login/findAccount` 뷰                     |
-| POST        | /login/findAccount     | findAccount     | 계정 조회 요청 처리          | `/login` 리다이렉트                            |
-| GET         | /login/registerAccount | registerAccount | 계정 생성 페이지            | `login/registerAccount` 뷰                 |
-| POST        | /login/createAccount   | createAccount   | 계정 생성 처리             | 처리 후 리다이렉트 (보통 `/login`)                  |
-
-### 2. 실패처리(ExceptionHandler)
-
-| 예외 클래스                  | 처리 메소드                            | 처리 내용                                                          | 리다이렉트 / 뷰                                   |
-| ----------------------- | --------------------------------- | -------------------------------------------------------------- | ------------------------------------------- |
-| AuthenticationException | handlerAccountStatusException     | 로그인 관련 예외 처리, 메시지를 Flash Attribute로 전달                         | `/login` 리다이렉트                              |
-| OtpException            | handlerVerifyCredentialsException | OTP 관련 예외 처리, 메시지를 Flash Attribute로 전달. 시스템 오류일 경우 로그인 페이지로 이동 | `/login/otp` 리다이렉트 (일반), `login` 뷰 (시스템 오류) |
-
-### 3. 서비스(LoginService)
-
-| 메소드명                                         | 설명                        | 반환값 / 결과                    |
-| -------------------------------------------- | ------------------------- | --------------------------- |
-| findId()                                     | ID 찾기                     | 없음 (void)                   |
-| findPassword(String email)                   | 비밀번호 찾기                   | 없음 (void)                   |
-| registerAccount(AccountUserVO userVO)        | 계정 등록                     | 없음 (void)                   |
-| checkAccountStatus(UserVO user)              | 계정 상태 확인 (휴면/잠금/정상)       | 없음 (void)                   |
-| verifyCredentials(UserVO user)               | ID/PWD 확인                 | 없음 (void)                   |
-| checkSecondVerification(String userNo)       | 2차 인증 필요 여부 확인 (SKIP/OTP) | String (`"SKIP"` / `"OTP"`) |
-| sendOtp(String userNo)                       | OTP 발송                    | VerifyOtpVO                 |
-| verifyOtp(String otp, VerifyOtpVO verifyOtp) | 입력한 OTP 검증                | 없음 (void)                   |
-
-
-## 4. 개선
-#### 1. Service 분리 (작업단위별 서비스 분리)
+## 3. 개선
+#### 1. Service의 책임이 너무 많음
 
   | 클래스 | 메소드명                                         | 설명                        | 반환값 / 결과                    |
   |-----| -------------------------------------------- | ------------------------- | --------------------------- |
@@ -96,7 +63,7 @@ tags: [ asianaClone ]
   |AccountService| findPassword(String email)                   | 비밀번호 찾기                   | 없음 (void)                   |
   |AccountService| registerAccount(AccountUserVO userVO)        | 계정 등록                     | 없음 (void)                   |
 
-#### 2. 서비스 결과값 생성
+#### 2. Exception은 진짜 Exception만 처리
  - Controller에서 결과를 확인하고 처리하도록 변경
      ```
       LoginResultDTO result = authenticationService.checkAccountStatus(userVo);
@@ -105,4 +72,9 @@ tags: [ asianaClone ]
               return "login/login";
           }   
      ```
-  - 지금은 마땅히 생각이 안나지만, 뭔가 깔끔하게 정리하는 소스를 찾아보고 보완 필요.
+ - LoginResultDTO
+  ```
+    private Status status; -- enum으로 관리
+    private String message; -- 메시지 표기
+  ```
+ - 뭔가 애매한듯한데 뭐가 문제인지 정의를 잘 모르겠음.(2025.11.03.)
