@@ -1,5 +1,5 @@
 ---
-title: 03 테스트 케이스
+title: 03 더미데이터 SQL
 date: 2025-10-26 10:00:00 +09:00
 categories: [01asianaClone, asianaData]
 tags: [ asianaClone, Data ]
