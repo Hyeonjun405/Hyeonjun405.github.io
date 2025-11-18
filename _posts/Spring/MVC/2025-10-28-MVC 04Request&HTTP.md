@@ -1,11 +1,11 @@
 ---
-title: 04 Request&Http
+title: 04 Request&HTTP
 date: 2025-10-28 10:00:00 +09:00
 categories: [00Spring Framework, SpringMVC]
 tags: [ Java, Spring Framework, SpringMVC ]
 ---
 
-## 2. 요청 구분
+## 1. 요청 구분
 ### 1. Spring MVC 컨트롤러 파라미터 애노테이션 비교
 
 | 애노테이션           | 데이터 위치             | HTTP 요청 형식               | 대상     | 특징 / 용도                             | 배열/리스트 처리                                               |
