@@ -1,7 +1,7 @@
 ---
 title: 05 인텔리제이 - 스마트톰캣 설정
 date: 2025-09-24 10:00:00 +09:00
-categories: [Java, JavaNote]
+categories: [note, JavaNote]
 tags: [Java]
 ---
 

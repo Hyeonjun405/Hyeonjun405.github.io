@@ -1,7 +1,7 @@
 ---
 title: 06 try-with-resources 패턴
 date: 2025-09-24 10:00:00 +09:00
-categories: [Java, JavaNote]
+categories: [note, JavaNote]
 tags: [Java]
 ---
 

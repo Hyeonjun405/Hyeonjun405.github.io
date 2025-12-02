@@ -1,7 +1,7 @@
 ---
-title: 01 RaceCondition
+title: 07 RaceCondition
 date: 2025-09-24 10:00:00 +09:00
-categories: [Note, JavaNote]
+categories: [note, JavaNote]
 tags: [Java, RaceConditon]
 ---
 
