@@ -28,20 +28,21 @@ tags: [ infra, kubernetesInflearn ]
 #### 1. yaml 만들기
  - 파일명 : nginx_pod.yaml
    - 변경 O, (도커파일은 변경 불가능함)
-   - 매니페스트파일(Manifest file) => 다양한 리소스(파드, 서비스, 볼륨 등)를 생성하고 관리하기 위해 사용하는 파일
+   - 매니페스트파일(Manifest file) : 다양한 리소스(파드, 서비스, 볼륨 등)를 생성하고 관리하기 위해 사용하는 파일
   - 내용
-  ```
-  apiVersion: v1 # Pod를 생성할 때는 v1이라고 기재한다. (공식 문서)
-  kind: Pod # Pod를 생성한다고 명시
-  metadata:
-    name: nginx-pod # Pod에 이름 붙이는 기능
-  spec:
-    containers:
-      - name: nginx-container # 생성할 컨테이너의 이름
-        image: nginx # 컨테이너를 생성할 때 사용할 Docker 이미지
-        ports:
-          - containerPort: 80 # 해당 컨테이너가 어떤 포트를 사용하는 지 명시적으로 표현
-  ```
+
+    ```
+    apiVersion: v1 # Pod를 생성할 때는 v1이라고 기재한다. (공식 문서)
+    kind: Pod # Pod를 생성한다고 명시
+    metadata:
+      name: nginx-pod # Pod에 이름 붙이는 기능
+    spec:
+      containers:
+        - name: nginx-container # 생성할 컨테이너의 이름
+          image: nginx # 컨테이너를 생성할 때 사용할 Docker 이미지
+          ports:
+            - containerPort: 80 # 해당 컨테이너가 어떤 포트를 사용하는 지 명시적으로 표현
+    ```
 
 #### 2. 실행 
   ```
