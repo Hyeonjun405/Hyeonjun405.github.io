@@ -68,7 +68,12 @@ tags: [ infra, kubernetesInflearn ]
   kubectl get deployment
   ```
 
-### 4. 레플리카셋 확인
+### 4. 디플로이먼트 재시작
+  ```
+  kubectl rollout restart deployment spring-deployment
+  ```
+
+### 5. 레플리카셋 확인
   ```
   # 네플리카셋 확인
   # 쿠버네티스 - 네플리카셋+네플리카셋 - 네플리카셋(파드+파드+파드) - 파드(컨테이너+컨테이너+컨테이너)
