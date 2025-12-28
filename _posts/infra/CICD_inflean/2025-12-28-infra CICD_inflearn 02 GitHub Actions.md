@@ -17,6 +17,8 @@ tags: [ infra, CICDInflearn ]
 - 최상위 폴더 구조에 생성
 
 ### 2. deploy.yaml
+ - 파일명 변경가능함, 변경하면 잡이 나뉨
+ - 파일 내용
  ```
   # Workflow의 이름
   # Workflow : 하나의 yml 파일을 하나의 Workflow
