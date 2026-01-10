@@ -162,3 +162,94 @@ tags: [Java]
     }
   ```
 
+## 3. 표준 함수형 인터페이스
+
+### 1. 표준 함수형 인터페이스
+ - 자바가 “람다를 제대로 쓰라고” 미리 만들어 둔 표준 함수형 인터페이스 묶음
+ - 필요한 것들을 활용해서 람다를 만들어서 사용하면 됨.
+ - 각기 인터페이스마다 메소드가 1개씩 정해져있음.
+
+### 2. Consumer<T>
+ - 받아서 소비만 하는 인터페이스
+ - 파라미터가 있고 리턴이 없음
+ - 용도
+   - 출력
+   - 저장
+   - 로그
+   - 상태 변경
+ - 예시
+
+   ```
+    Consumer<Integer> consumer = num -> System.out.println(num);
+    consumer.accept(5); // 콘솔에 5가 나옴. 
+        
+    Consumer<String> consumer = str -> System.out.println(str);
+    consumer.accept("a"); // 콘솔에 a가 나옴.
+   ```
+
+### 3. Supplier<T>
+ - 받아오는 것 없이 값을 제공 
+ - 파라미터가 없고, 리턴값이 있음.
+ - 용도
+   - 객체 지연 생성
+   - 기본값 공급
+   - 팩토리 역할
+ - 예시
+
+   ```
+    Supplier<Double> supplier = () -> new Random().nextInt(10);
+    
+    System.out.println(supplier.get()); // new Random().nextInt(10)으로 나온 값.
+   ```
+
+### 4. Function<T, R>
+ - T를 받아서 R로 변환
+ - 파라미터와 리턴값이 있음.
+ - 용도
+   - 매핑
+   - 변환
+   - DTO → Entity
+   - 값 가공
+ - 예시
+
+   ```
+     // 타입변환이 가능함!
+     // str값을주면 -> 이후 작업을 해서 두번째 타입으로 리턴함.
+     Function<String, Interger> function = str -> Integer.parseInt(str);
+
+     int result = function.apply("1234");
+     System.out.println(result); //콘솔에 1234가 나옴 
+   ``` 
+
+### 5. Operator
+ - 자기 자신 타입으로 연산
+ - 실체는 Function의 특수 케이스 / 연산이라는 의미를 코드에 드러냄
+ - Function에서 제약을 더 걸어서 만들어진거라고 봐야함.
+ - 예시
+
+  ```
+   // 타입변환이 불가함, 단순 계산용
+   //UnaryOperator<T> extends Function<T, T>
+   UnarayOperator<Integer> operator1 = num -> num * num;
+   int result = operator1.apply(2); //콘솔에 4
+   
+   //BinaryOperator<T> extends BiFunction<T, T, T>
+   BinaryOperator<Integer> operator2 = (num1, num2) -> num1 + num2;
+   int result = operator2.apply(1,2); //콘솔에 3 
+    
+  ```
+
+### 6. Predicate<T>
+ - 조건 검사하는 인터페이스
+ - 작업후에 결과로 참/거짓 판단함.
+ -  용도 
+    - 필터링
+    - 검증
+    - 조건 분기
+ - 예시
+
+  ```
+   // 결과 값이 맞냐 틀리냐 판단
+   Predicate<String> predicate = str -> str.length() > 5;
+   predicate.test("text"); // false
+  ```

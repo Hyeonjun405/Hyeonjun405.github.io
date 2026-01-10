@@ -25,60 +25,99 @@ tags: [Java]
  - 람다 내부가 “단일 메서드 호출”일 때
  - 로직이 추가되지 않을 때
  - 의미가 더 명확해질 때
-   
+
 ## 2. 메소드참조의 종류
-### 1. static 메서드 참조
- - 함수형 인터페이스의 메서드 파라미터와 static 메서드 파라미터가 동일해야함
- - 방법
-  ```
-   (x, y) -> Math.max(x, y) // 람다
-   Math::max // 메서드 참조
-  ``` 
- 
- - 예시
-  ```
-     BiFunction<Integer, Integer, Integer> max = Math::max; // 
-     Integer value = max.apply(3, 7);
-     System.out.println("높은 값은 : " + value) // 높은 값은 : 7
-  ```
+### 1. static 메서드 
+   ```
+    Class A {
+     static void mA(int x) { // 스테틱 메서드
+       System.out.println(x);
+     }
+    }  
+   ```
+   ```
+    // 람다 
+    IntConsumer intConsumer = x -> System.out.println(x);
+    
+    // 람다 + 정적메소드 이기 때문에 객체 생성 불필요해짐X
+    IntConsumer intConsumer = x -> a.mA(X); // 스테틱 메소드를 참조함
+    
+    // 메서드 참조 
+    IntConsumer intConsumer = A:mA; // 스테틱 메소드를 참조함
+   ```
 
 ### 2. 인스턴스 메서드 참조 (특정 객체)
- - 방법
    ```
-    user -> user.isActive() // 람다 
-    user::isActive // 메서드 참조   
+    Class A {
+      static void mB(long y) { // 일반 메서드
+       System.out.println(y);
+      }
+    }  
    ```
- - 예시
    ```
-   User user = new User();
-   Supplier<Boolean> s = user::isActive; // User라는 타입에는 isActive라는 메소드가 존재함. 
-   ```
+    // 람다 
+    LongConsumer longConsumer = y -> System.out.println(y);
+    
+    // 스테틱이 아니기 때문에 사용할 객체생성함.
+    // 람다 + 메서드 
+    A a = new A();
+    LongConsumer longConsumer = a.mB(y);
 
+    // 메서드 참조
+    // A aa = new A(); 
+    LongConsumer longConsumer = aa::mB;
+   ```
 
 ### 3. 인스턴스 메서드 참조 (임의 객체)
- - 방법
-  ```
-   (user) -> user.getName() // 람다
-   User::getName // 메서드 참조
-  ```
- - 예시 
    ```
-    // 람다의 첫 번째 파라미터가 메서드를 호출하는 “대상 객체(this)”
-    Function<User, String> f = User::getName;
-    user -> user.getName()
+    Class A {
+      static void mC(dobule z) { // 일반 메서드
+       System.out.println(z);
+      }
+    }  
+   ```
+   ```
+    // 람다
+    objDoubleConsumer<A> objDOulbeCOnsumer = (obj, z) -> obj.mC(z);
+   
+    // 클래스 자체를 파라미터로 넘겨줘서 사용하는 형태
+    // + 제네릭으로 클래스 타입을 정해줘야함.
+    objDoubleConsumer<A> objDOulbeCOnsumer = A:mc
    ```
 
 ### 4. 생성자 참조
- - 파라미터 없이 생성
-  ```
-   () -> new User() // 람다
-   User::new // 메서드 참조
-  ```
- - 파라미터 있는 생성자
-  ```
-   (name) -> new User(name) // 람다
-   User::new // 메서드 참조
-  ```
+   ```
+    Class A {
+      A(){
+       System.out.println("A 생성자 호출");
+      }
+      
+      A(int i){
+        System.out.println(i + "를 문자열로");
+      }
+      
+    }  
+   ```
+   ```
+   // 람다 
+   Supplier<A> supplier = () -> new A(); // 생성자
+   
+   // 제네릭에서 정해준 클래스 타입
+   // new를 통해 그냥 생성자 호출함.
+   Supplier<A> supplier = A::new;
+   
+   supplier.get();
+         
+   //람다
+   IntFunction<A> intFunction = i -> new A(i);
+   
+   // 위 방식과 동일
+   // IntFunction<A>는 Int를 받아서 A타입으로 리턴한다는 의미를 암묵적으로 가지고 있음.
+   // 따라서 별도의 타입을 안써줘도 알아서 처리.
+   IntFunction<A> intFunction = A::new; 
+
+   intFunction.apply(10);
+   ```
 
 
 
