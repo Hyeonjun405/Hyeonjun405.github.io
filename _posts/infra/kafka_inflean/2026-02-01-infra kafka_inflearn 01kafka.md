@@ -149,11 +149,11 @@ tags: [ infra, kafkaInflearn ]
    - 기본적으로 빈으로 등록 후에 작업이 필요함.
 
 #### 2. kafka Container
-
-  ```
+   ```
   @Configuration
   public class KafkaConsumerConfig {
   
+      // 스프링부트에서 프로퍼티스 설정하면 자동으로 처리는 됨
       @Bean
       public ConsumerFactory<String, OrderCreatedEvent> consumerFactory() {
   
