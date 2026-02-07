@@ -66,6 +66,11 @@ tags: [ infra, kafkaInflearn ]
  # 공식문서에서 제공되어 있음.
  $ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
  $ bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
+ 
+ $ bin/kafka-storage.sh format \ # 초기화
+   --standalone \ # 단일 노드 모드 (컨트롤러 1개)
+   -t $KAFKA_CLUSTER_ID \ # 이 노드가 속할 클러스터 ID
+   -c config/server.properties # 어떤 설정 파일 기준으로 디렉토리 만들지
  ```
 
 ### 2. 추후 일반 실행
