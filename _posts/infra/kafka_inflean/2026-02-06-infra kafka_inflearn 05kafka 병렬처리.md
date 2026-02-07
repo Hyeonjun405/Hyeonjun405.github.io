@@ -1,5 +1,5 @@
 ---
-title: 04 kafka 병렬처리
+title: 05 kafka 병렬처리
 date: 2026-02-06 10:00:00 +09:00
 categories: [infra, kafkaInflearn]
 tags: [ infra, kafkaInflearn ]
