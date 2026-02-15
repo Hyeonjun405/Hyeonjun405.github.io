@@ -10,7 +10,7 @@ tags: [ infra, MSAInflearn ]
  - 게시글 작성전 포인트차감 -> 게시글 작성 -> 활동점수 부여 서비스 로직
 
 ### 2. 상황
-   ![내 그림](assets/img/infra/msa_inflearn/06/트랜잭션 패턴.png "이미지")
+   ![내 그림](assets/img/infra/msa_inflearn/03/트랜잭션 패턴.png "이미지")
 
 ### 3. 자바소스
  ```
@@ -33,7 +33,7 @@ tags: [ infra, MSAInflearn ]
   }
  ```
 
-### 3. memo
+### 4. memo
  - 위 패턴에서 다른 서비스는 MSA 구조로 구성된 다른 서비스에서 작업을 진행함.
  - 활동 점수를 부여도중 에러가 발생하면,
    - 해당 로직의 작성자에게 점수 부여는 커밋X
