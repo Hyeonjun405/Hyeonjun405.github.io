@@ -1,8 +1,8 @@
 ---
-title: 08 Flyway
+title: 01 Flyway
 date: 2026-03-13 10:00:00 +09:00
-categories: [00Spring Framework, SpringNote]
-tags: [ Java, Spring Framework, Spring Note ]
+categories: [Sparta, Sparta_Spring]
+tags: [ Java, Spring Framework ]
 ---
 
 ## 1. Note
