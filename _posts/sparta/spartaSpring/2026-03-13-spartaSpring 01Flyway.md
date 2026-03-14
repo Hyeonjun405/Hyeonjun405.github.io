@@ -1,7 +1,7 @@
 ---
 title: 01 Flyway
 date: 2026-03-13 10:00:00 +09:00
-categories: [Sparta, Sparta_Spring]
+categories: [Sparta, SpartaSpring]
 tags: [ Java, Spring Framework ]
 ---
 
