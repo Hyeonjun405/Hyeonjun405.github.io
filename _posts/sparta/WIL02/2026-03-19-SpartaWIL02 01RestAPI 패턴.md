@@ -1,5 +1,5 @@
 ---
-title: 01 RestAPI
+title: 01 RestAPI 패턴
 date: 2026-03-19 10:00:00 +09:00
 categories: [Sparta, SpartaWIL02]
 tags: [ Java, Spring Framework ]
