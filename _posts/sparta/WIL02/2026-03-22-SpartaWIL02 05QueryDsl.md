@@ -181,8 +181,7 @@ tags: [ Java, Spring Framework, JPA ]
  }
  ```
 
-
-#### 4. Paging
+#### 4. Paging(SpartaNote_01에 별도 내용 심화)
   - 소스
    ```
    List<Product> products = queryFactory
