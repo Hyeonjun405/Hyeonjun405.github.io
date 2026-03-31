@@ -1,6 +1,6 @@
 ---
 title: 02 pgvector&SpringAI
-date: 2026-03-30 10:00:00 +09:00
+date: 2026-03-31 10:00:00 +09:00
 categories: [Sparta, SpartaWIL03]
 tags: [ Java, Spring Framework ]
 ---
@@ -25,23 +25,7 @@ tags: [ Java, Spring Framework ]
  - 필터링 + 유사도 검색을 동시에 처리 가능
  - 비용 효율 좋음 (추가 인프라 없음)
 
-### 3. 흐름
-  ```
-    # 지금 소스에서는 LLM이 변환 X , 자료 조회 O 
-    파일 업로드
-        ↓
-    vector_documents에 원본 저장
-        ↓
-    텍스트를 청크로 분할 (Spring AI TextSplitter)
-        ↓
-    각 청크를 임베딩 모델로 벡터화
-        ↓
-    vector_store에 청크 + 벡터 저장
-        ↓
-    사용자 질문 → 질문도 벡터화 → 유사도 검색 (pgvector)
-  ```
-
-## 3. 테이블 생성
+## 3. RAG용 테이블 생성
 ### 1. 커스터마이징
  - 가능한 영역
     - 테이블명 변경
@@ -90,7 +74,7 @@ tags: [ Java, Spring Framework ]
   CREATE INDEX idx_vector_store_metadata ON vector_store USING gin (metadata);
   ```
 
-## 5. Spring 셋팅
+## 5. Spring 의존성 및 셋팅
 ### 1. 의존성
   ```
   dependencyManagement {
@@ -196,7 +180,7 @@ tags: [ Java, Spring Framework ]
   }
  ```
 
-## 6. Spring
+## 6. Spring - 기본 샘플(데이터 조회)
 ### 1. 문서 업로드 및 벡터화
 ```
   @Transactional
