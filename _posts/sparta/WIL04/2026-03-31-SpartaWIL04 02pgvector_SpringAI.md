@@ -1,7 +1,7 @@
 ---
 title: 02 pgvector&SpringAI
 date: 2026-03-31 10:00:00 +09:00
-categories: [Sparta, SpartaWIL03]
+categories: [Sparta, SpartaWIL04]
 tags: [ Java, Spring Framework ]
 ---
 

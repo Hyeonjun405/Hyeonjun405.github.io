@@ -1,7 +1,7 @@
 ---
 title: 01 VectorDB 개념
 date: 2026-03-30 10:00:00 +09:00
-categories: [Sparta, SpartaWIL03]
+categories: [Sparta, SpartaWIL04]
 tags: [ Java, Spring Framework ]
 ---
 
