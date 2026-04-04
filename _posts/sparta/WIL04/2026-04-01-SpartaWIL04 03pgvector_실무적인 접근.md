@@ -1,5 +1,5 @@
 ---
-title: 03 RAG & LLM 
+title: 03 pgvector 실무적인 접근
 date: 2026-04-01 10:00:00 +09:00
 categories: [Sparta, SpartaWIL04]
 tags: [ Java, Spring Framework ]
@@ -15,6 +15,11 @@ tags: [ Java, Spring Framework ]
    - RAG를 쓴다는건 내부 데이터를 추가로 토큰을 사용해서 넘겨줘서 정확한 답변을 유도하는것
    - 쓰는 것과 안쓰는 것 비교하면 토큰을 사용해서 정확한 데이터를 찾아내는 것에 가까움
    - 안쓰는거랑 비교하면 X
+ - ☆ VectorDB ☆
+   - SpartaNote02 - Vector DB < 기본 개념과 흐름 >
+   - SpartaWIL04 - 02pgvector_기본 패턴 < 사용법 / 기본 패턴 파악 >
+   - SpartaWIL04 - 03pgvector_실무적인 접근 < 실무 패턴 >
+   
 
 ## 2. 기본 흐름
 ### 1. RAG/CAG

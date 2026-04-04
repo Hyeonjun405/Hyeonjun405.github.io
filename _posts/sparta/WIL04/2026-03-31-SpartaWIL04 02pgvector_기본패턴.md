@@ -1,5 +1,5 @@
 ---
-title: 02 pgvector&SpringAI
+title: 02 pgvector 기본 패턴
 date: 2026-03-31 10:00:00 +09:00
 categories: [Sparta, SpartaWIL04]
 tags: [ Java, Spring Framework ]
@@ -12,6 +12,10 @@ tags: [ Java, Spring Framework ]
  - 만약 특정한 서류기준으로 조회를 하고자 한다면
    - 서류를 조회할때 특정 UUID값 기준으로 조회하고
    - 그게 아니면 전체 서류에서 조회하면 됨
+ - ☆ VectorDB ☆
+   - SpartaNote02 - Vector DB < 기본 개념과 흐름 >
+   - SpartaWIL04 - 02pgvector_기본 패턴 < 사용법 / 기본 패턴 파악 >
+   - SpartaWIL04 - 03pgvector_실무적인 접근 < 실무 패턴 >
 
 ## 2. SpringAI + pgVector
 ### 1. RAG 방식(Retrieval-Augmented Generation)
@@ -39,6 +43,9 @@ tags: [ Java, Spring Framework ]
 ### 2. vector_documents 생성
   ```
     -- 업로드된 파일의 원본 정보를 통째로 보관하는 테이블
+    -- 원본 데이터를 VectorDB에 분할해서 보관함.
+    -- 그러다보니 VectorDB에서는 쪼개진 상태라 정확히 파악이 어려워서 관리용으로 Vector_documents
+    -- 삭제 할 경우에 Vector_dcouments에서 전체 쪼개진 파일 확인 가능 해짐
     CREATE TABLE vector_documents
     (
         id           UUID PRIMARY KEY      DEFAULT gen_random_uuid(), -- 문서 고유 식별자 (자동 생성)
@@ -207,6 +214,7 @@ tags: [ Java, Spring Framework ]
     /* private 함수
      * - 확정된 ID를 전달하여 문서 분할 및 메타데이터 설정
      * - 문서를 한번에 넣으면 크기 때문에 분할함
+     * - 여기서 메타데이터 생성함.
      */
     List<Document> chunks = createChunks(content, savedDocument);
 
