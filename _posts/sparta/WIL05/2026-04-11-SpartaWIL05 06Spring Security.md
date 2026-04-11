@@ -164,6 +164,20 @@ public PasswordEncoder passwordEncoder() {
 }
 ```
 
+### 4. authenticationManager
+#### 1. authenticationManager
+- 서비스 단에서 인증정보를 가져가서 사용할 수 있도록 하는 곳
+
+#### 2. 소스
+```
+@Bean
+public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+  throws Exception {
+  return config.getAuthenticationManager();
+}
+```
+
+
 ## 4. 사용자 조회 & 인증 정보 객체
 ### 1. 사용자 조회
 #### 1. CustomUserDetailsService (사용자 조회)
@@ -215,7 +229,7 @@ public class CustomUserDetails implements UserDetails, Serializable {
   }
  
   public static CustomUserDetails from(User user) {
-    return new CustomUserDetails(user.getId(), 7user.getEmail(), user.getPassword());
+    return new CustomUserDetails(user.getId(), user.getEmail(), user.getPassword());
   }
 
   @Override
