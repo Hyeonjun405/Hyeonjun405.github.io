@@ -1,7 +1,7 @@
 ---
 title: (Sparta_WIL_05) 캐싱전략
 date: 2026-04-12 10:00:00 +09:00
-categories: [Sparta, SpartaWIL11]
+categories: [Sparta, SpartaWIL05]
 tags: [ Java, Spring Framework ]
 ---
 
