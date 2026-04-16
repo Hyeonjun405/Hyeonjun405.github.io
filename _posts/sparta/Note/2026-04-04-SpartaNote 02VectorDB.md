@@ -20,7 +20,7 @@ tags: [ Java, Spring Framework ]
    - SpartaWIL04 - 02pgvector_기본 패턴 < 사용법 / 기본 패턴 파악 >
    - SpartaWIL04 - 03pgvector_실무적인 접근 < 실무 패턴 >
 
-## 1. VectorDB 사용 전체 흐름
+## 2. VectorDB 사용 전체 흐름
 ### 1. 원본 문서 (PDF, DB 데이터, API 응답 등) 저장
  - 텍스트 추출 (필요에 따라서 AP에서 선별해서 넣기도 함)
  - chunk 단위로 분할 (데이터를 한번에 넣으면 추후에 통으로 읽어야하므로 청크화)
@@ -47,7 +47,7 @@ tags: [ Java, Spring Framework ]
  - 검색 결과 + 질문 → LLM에 전달
  - 최종 답변 생성
 
-## 2. PgVector 관련 문법
+## 3. PgVector 관련 문법
 ### 1. Where 관련
   ``` 
   WHERE metadata->>'documentId' = '123'
@@ -77,7 +77,7 @@ tags: [ Java, Spring Framework ]
   -- topK
   ```
 
-## 3. metadata (필수 작업)
+## 4. metadata (필수 작업)
 ### 1. JSON형태로 데이터에 관한 정보를 저장함.
   
    ```
@@ -104,7 +104,7 @@ tags: [ Java, Spring Framework ]
    -- WHERE metadata->>'documentId' = '123' => 도큐먼트Id관리하고 있다면 서류 123번 조회  
    ```
 
-## 4. Return 값
+## 5. Return 값
 ### 1. select * from ~
   ```
   id: 550e8400-e29b-41d4-a716-446655440000
@@ -115,7 +115,7 @@ tags: [ Java, Spring Framework ]
   ```
    
 ### 2. DTO 결과값
-### 1. DTO
+#### 1. DTO
 ```
 class VectorDocument {
     UUID id;
@@ -125,7 +125,7 @@ class VectorDocument {
 }
 ```
 
-### 2. 리턴 방식
+#### 2. 리턴 방식
 ```
  // select * from 한 값 5개가 VectorDocument에 쌓임
  List<VectorDocument> results = ~~;
